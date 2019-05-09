@@ -156,14 +156,13 @@ t_env	*ft_gradient_descent(t_env *env, double *cout, int epoch)
 		i++;
 	}
 	*cout = cost;
-	if (cost < 8 && epoch > 0)
+	if (cost < 10000 && epoch % 10 == 0)
 		ft_export_weights(env->conf); // Saving the weights if a really good config is found
 	return (env);
 }
 
 double	ft_get_cost(t_env *env, double *conf)
 {
-	int 		index = 0;
 	double		cost = 0;
 	int 		i;
 
@@ -171,7 +170,6 @@ double	ft_get_cost(t_env *env, double *conf)
 	env->nw = ft_apply_weights(env->nw, conf);
 	while (i < BATCH_SIZE)
 	{
-		index = rand() % 60000;
 		ft_fire(env->nw, env->dataset[i].input);
 		cost += ft_cost(env, i);
 		i++;
@@ -223,7 +221,7 @@ int		ft_backpropagation(t_env *env, char *digits, char *labels)
 		prev_cost = cost;
 		printf("----- Epoch %d -----\nAverage = %.20f\nLearning_rate : %f\n", epoch, av, env->l_rate);
 		printf("Learning Rate = %f\n", env->l_rate);
-//		printf("Cost = %f\n", cost);
+		printf("Cost = %f\n", cost);
 		if (epoch % 50 != 0) // Average of the cost on the last thousand epochs
 			average += cost;
 		else
@@ -234,7 +232,6 @@ int		ft_backpropagation(t_env *env, char *digits, char *labels)
 		}
 		if (av < 10)
 			exit (EXIT_SUCCESS);
-//		env->l_rate = ft_guess_lrate(env, cost);
 		env->conf = ft_apply_changes(env->conf, env->changes, env->l_rate);
 		epoch++;
 	}

@@ -24,7 +24,7 @@
 # define BIAS 1
 # define BUFF_READ 4194304
 # define BUFF_RAND 8388608
-# define BATCH_SIZE 100
+# define BATCH_SIZE 60000
 
 # define HEIGHT 600
 # define WIDTH 800
