@@ -8,8 +8,6 @@ int 	ft_exit(void *param)
 
 void	reframe(void *param)
 {
-//	mlx_clear_window(MLX->mlx_ptr, MLX->win_ptr);
-//	printf("Reframe\nx = %d\ny = %d\nPress = %d\n", MLX->x, MLX->y, MLX->press);
 	mlx_put_image_to_window(ENV->mlx.mlx_ptr, ENV->mlx.win_ptr, ENV->mlx.img_ptr, 0, 0);
 	ft_draw_text(&(ENV->mlx));
 }
@@ -129,7 +127,6 @@ int 	ft_pos(int x, int y, void *param)
 		ENV->mlx.y = y;
 		ft_mouse_event(param);
 	}
-//	reframe(param);
 	return (1);
 }
 
@@ -149,7 +146,6 @@ int 	ft_test(t_env *env, char *file_name)
 	mlx_put_image_to_window(env->mlx.mlx_ptr, env->mlx.win_ptr, env->mlx.img_ptr, 0, 0);
 	ft_draw_text(&env->mlx);
 
-//	mlx_mouse_hook(env->mlx.win_ptr, ft_mouse_event, &env->mlx);
 	env->mlx.press = false;
 	env->mlx.x = 0;
 	env->mlx.y = 0;
@@ -157,7 +153,6 @@ int 	ft_test(t_env *env, char *file_name)
 	mlx_hook(env->mlx.win_ptr, 5, (1L<<3), ft_stop, env);
 	mlx_hook(env->mlx.win_ptr, 6, 0, ft_pos, env);
 	mlx_hook(env->mlx.win_ptr, 17, 1L << 17, ft_exit, env);
-//	mlx_loop_hook(env->mlx.win_ptr, ft_mouse_event, &env->mlx);
 	mlx_loop(env->mlx.mlx_ptr);
 	return (0);
 }

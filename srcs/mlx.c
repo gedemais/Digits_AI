@@ -59,7 +59,6 @@ char	*ft_draw_circle(char *img, t_point coord, double size, double pre, double p
  	int		save[2] = {coord.x, coord.y};
  	
  	y = size;
-// 	img = ft_fill_pixel(img, coord, color);
 	for (int i = -y; i <= y + 10; i++) 
 	{
 		for (int j = -y; j <= y; j++) 
@@ -137,13 +136,10 @@ int 	ft_make_color(double out)
 	int 	ret = 0;
 	int 	tmp;
 
-	printf("Out = %f\n", out);
 	tmp = out * 256;
-	printf("tmp = %d\n", tmp);
 	ret += tmp;
 	ret += tmp * 256;
 	ret += tmp * 65536;
-//	ret += tmp * 16711680;
 	return (ret);
 }
 
