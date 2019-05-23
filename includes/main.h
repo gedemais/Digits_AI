@@ -68,7 +68,6 @@ typedef struct	s_neurone
 	double 		biais;
 	double		*weights;
 	bool		stop;
-
 }				t_neurone;
 
 typedef struct s_env
