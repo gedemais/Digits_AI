@@ -51,11 +51,11 @@ char	*ft_draw_square(char *map, t_point point, int size, int color)
 	return (map);
 }
 
-char	*ft_draw_circle(char *img, t_point coord, double size, double pre, double post, int color)
+char	*ft_draw_circle(char *img, t_point coord, float size, float pre, float post, int color)
 {
-	double 	y;
-	double 	k;
- 	double 	m = 2.0;
+	float 	y;
+	float 	k;
+ 	float 	m = 2.0;
  	int		save[2] = {coord.x, coord.y};
  	
  	y = size;
@@ -77,9 +77,9 @@ char	*ft_draw_circle(char *img, t_point coord, double size, double pre, double p
  	return (img);
 }
 
-double 	ft_average(char *img, int i, int pos)
+float 	ft_average(char *img, int i, int pos)
 {
-	double 	ret = 0;
+	float 	ret = 0;
 	int 	j = 0;
 
 	while (j < 4)
@@ -94,22 +94,22 @@ double 	ft_average(char *img, int i, int pos)
 	return (ret);
 }
 
-double 	*ft_compute(t_env *env)
+float 	*ft_compute(t_env *env)
 {
-	double 	*input;
+	float 	*input;
 	int		average;
 	int 	i = 0;
 	int 	k = 0;
 	int 	pos = ((241 - 1) * WIDTH + 341) * 4;
 
-	if (!(input = (double*)malloc(sizeof(double) * 784)))
+	if (!(input = (float*)malloc(sizeof(float) * 784)))
 		return (NULL);
-	if (!(env->mlx.out = (double*)malloc(sizeof(double) * 10)))
+	if (!(env->mlx.out = (float*)malloc(sizeof(float) * 10)))
 		return (NULL);
 	while (k < 784)
 	{
 		average = ft_average(env->mlx.img, i, pos);
-		input[k] = (double)((double)average / 16) * 1.45 / 100;
+		input[k] = (float)((float)average / 16) * 1.45 / 100;
 		printf("Input[%d] = %f\n", k, input[k]);
 		i += 16;
 		if (k % 28 == 0 && k != 0)
@@ -131,7 +131,7 @@ double 	*ft_compute(t_env *env)
 	return (env->mlx.out);
 }
 
-int 	ft_make_color(double out)
+int 	ft_make_color(float out)
 {
 	int 	ret = 0;
 	int 	tmp;
@@ -143,7 +143,7 @@ int 	ft_make_color(double out)
 	return (ret);
 }
 
-char	*ft_draw_base(char *img, double *out)
+char	*ft_draw_base(char *img, float *out)
 {
 	t_point		coord;
 	int 		i = 0;

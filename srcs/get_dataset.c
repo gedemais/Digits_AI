@@ -61,15 +61,15 @@ int		ft_is_pixel(char *base, char c) // Check if the current address is a white 
 	return (0);
 }
 
-double	*ft_read_img(char *file, char *base, int *jj)
+float	*ft_read_img(char *file, char *base, int *jj)
 {
-	double 	*input;
+	float 	*input;
 	char 	buff[3];
 	int 	j;
 	int 	i = 0;
 
 	j = *jj;
-	if (!(input = (double*)malloc(sizeof(double) * IMG_SIZE)))
+	if (!(input = (float*)malloc(sizeof(float) * IMG_SIZE)))
 		return (NULL);
 	while (file[j] != '\n' || file[j] == '=')
 		j++;
@@ -86,7 +86,7 @@ double	*ft_read_img(char *file, char *base, int *jj)
 			buff[0] = file[j];
 			buff[1] = file[j + 1];
 			buff[2] = '\0';
-			input[i] = (double)((double)atoi_base(buff, base) / 272);
+			input[i] = (float)((float)atoi_base(buff, base) / 272);
 			i++;
 		}
 		j += 2;
@@ -97,7 +97,7 @@ double	*ft_read_img(char *file, char *base, int *jj)
 	return (input);
 }
 
-void 	ft_print_dtab(double *output)
+void 	ft_print_dtab(float *output)
 {
 	int 	i = 0;
 
@@ -109,13 +109,13 @@ void 	ft_print_dtab(double *output)
 	printf("\n");
 }
 
-double	*ft_make_output(int digit)
+float	*ft_make_output(int digit)
 {
-	double 	*output;
+	float 	*output;
 	int 	i;
 
 	i = 0;
-	if (!(output = (double*)malloc(sizeof(double) * 10)))
+	if (!(output = (float*)malloc(sizeof(float) * 10)))
 		return (NULL);
 	while (i < 10)
 	{

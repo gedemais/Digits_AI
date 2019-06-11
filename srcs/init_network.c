@@ -51,7 +51,7 @@ t_neurone	**ft_link_layer(t_neurone **nw, int prev, int prev_size, int next_size
 	{
 
 		j = 0;
-		if (!(nw[prev][i].weights = (double*)malloc(sizeof(double) * next_size))) // double *weights containing the weights of a single neuron
+		if (!(nw[prev][i].weights = (float*)malloc(sizeof(float) * next_size))) // float *weights containing the weights of a single neuron
 			return (NULL);
 	//	printf("Neurone %d :\n", i);
 		while (j < next_size)

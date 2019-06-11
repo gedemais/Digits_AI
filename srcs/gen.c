@@ -1,6 +1,6 @@
 #include "../includes/main.h"
 
-double 	*ft_cpy_weights(double *dest, double *src)
+float 	*ft_cpy_weights(float *dest, float *src)
 {
 	int 	i;
 
@@ -13,7 +13,7 @@ double 	*ft_cpy_weights(double *dest, double *src)
 	return (dest);
 }
 
-double 	*ft_set_rand(double *weights, double min, double max)
+float 	*ft_set_rand(float *weights, float min, float max)
 {
 	int 	i = 0;
 
@@ -25,7 +25,7 @@ double 	*ft_set_rand(double *weights, double min, double max)
 	return (weights);
 }
 
-int 	ft_is_just(double *output, int label)
+int 	ft_is_just(float *output, int label)
 {
 	int 	i = 0;
 

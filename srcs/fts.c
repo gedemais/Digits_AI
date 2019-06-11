@@ -1,25 +1,25 @@
 #include "../includes/main.h"
 
-double		ft_sigmoid(double x)
+float		ft_sigmoid(float x)
 {
-     double exp_value;
-     double return_value;
+     float exp_value;
+     float return_value;
 
      /*** Exponential calculation ***/
-     exp_value = exp((double) -x);
+     exp_value = exp((float) -x);
 
      /*** Final sigmoid value ***/
      return_value = 1 / (1 + exp_value);
      return (return_value);
 }
 /*
-double	random_dbl(double min, double max)
+float	random_dbl(float min, float max)
 {
 	static char		buff[BUFF_RAND + 1];
 	static int 		index = 0;
 	static int 			fd = 0;
-	double 			percent;
-	double 			ret;
+	float 			percent;
+	float 			ret;
 
 	if (fd == 0)
 		fd = open("/dev/random", O_RDONLY);
@@ -31,21 +31,21 @@ double	random_dbl(double min, double max)
 			return (0);
 		buff[BUFF_RAND] = '\0';
 	}
-	ret = (double)((double)buff[index] * (double)buff[index + 1]);
+	ret = (float)((float)buff[index] * (float)buff[index + 1]);
 	percent = ret / 16129;
 	ret = ((max - min) * percent);
 	index += 2;
 	return (ret);
 }
 */
-double    random_dbl(double min, double max)
+float    random_dbl(float min, float max)
 {
-   double range = (max - min);
-   double div = RAND_MAX / range;
+   float range = (max - min);
+   float div = RAND_MAX / range;
    return min + (rand() / div);
 }
 
-int 	ft_export_weights(double *weights)
+int 	ft_export_weights(float *weights)
 {
 	int 	i = 0;
 	int 	fd;

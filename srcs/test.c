@@ -39,9 +39,9 @@ t_env	*ft_load_weights(t_env *env, char *file_name)
 
 t_env 	*ft_init_test(t_env *env, char *file_name)
 {
-	if (!(env->conf = (double*)malloc(sizeof(double) * 13002)))
+	if (!(env->conf = (float*)malloc(sizeof(float) * 13002)))
 		return (NULL);
-	if (!(env->output = (double*)malloc(sizeof(double) * 10)))
+	if (!(env->output = (float*)malloc(sizeof(float) * 10)))
 		return (NULL);
 	if (!(env->nw = ft_init_network()))
 		return (NULL);

@@ -6,7 +6,7 @@
 #    By: gedemais <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/05 00:59:17 by gedemais          #+#    #+#              #
-#    Updated: 2019/04/24 10:41:33 by gedemais         ###   ########.fr        #
+#    Updated: 2019/06/11 06:34:15 by gedemais         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRCS_NAME = main.c\
 			backprop.c\
 			get_dataset.c\
 			apply_weights.c\
+			opencl.c\
 			init_network.c
 
 SRCS_PATH = srcs/
@@ -63,7 +64,7 @@ all : $(LIB) $(NAME)
 
 $(NAME) : $(LIB) $(SRCS) includes/main.h	
 		@echo "Making $(CYA)Digits_AI$(DEF)..."
-		$(CC) $(CFLAGS) -o $(NAME) -I /usr/local/include/ -I includes/ -I libft/ $(SRCS) -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit $(LIB)
+		$(CC) $(CFLAGS) -o $(NAME) -I /usr/local/include/ -I includes/ -I libft/ $(SRCS) -L /usr/local/lib/ -lmlx -framework OpenGL -framework OpenCL -framework AppKit $(LIB)
 		@echo "$(GRE)Done !$(DEF)"
 
 $(LIB) : $(LIB_PATH)

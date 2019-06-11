@@ -1,6 +1,6 @@
 #include "../includes/main.h"
 
-t_neurone	**ft_fill_in(t_neurone **nw, double *input)
+t_neurone	**ft_fill_in(t_neurone **nw, float *input)
 {
 	int 	i = 0;
 
@@ -15,9 +15,9 @@ t_neurone	**ft_fill_in(t_neurone **nw, double *input)
 	return (nw);
 }
 
-double		ft_get_sum(t_neurone **nw, int layer, int layer_size, int neurone)
+float		ft_get_sum(t_neurone **nw, int layer, int layer_size, int neurone)
 {
-	double 	sum = 0.000;
+	float 	sum = 0.000;
 	int 	i = 0;
 
 	while (i < layer_size)
@@ -28,7 +28,7 @@ double		ft_get_sum(t_neurone **nw, int layer, int layer_size, int neurone)
 	return (sum);
 }
 
-void		ft_fire(t_neurone **nw, double *input)
+void		ft_fire(t_neurone **nw, float *input)
 {
 	int 		i = 0;
 
@@ -56,7 +56,7 @@ void		ft_fire(t_neurone **nw, double *input)
 	}
 }
 
-t_neurone	**ft_apply_weights(t_neurone **network, double *weights)
+t_neurone	**ft_apply_weights(t_neurone **network, float *weights)
 {
 	int 	i = 0;
 	int 	layer = 0;
