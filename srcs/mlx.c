@@ -110,7 +110,7 @@ float 	*ft_compute(t_env *env)
 	{
 		average = ft_average(env->mlx.img, i, pos);
 		input[k] = (float)((float)average / 16) * 1.45 / 100;
-		printf("Input[%d] = %f\n", k, input[k]);
+//		printf("Input[%d] = %f\n", k, input[k]);
 		i += 16;
 		if (k % 28 == 0 && k != 0)
 		{
@@ -123,7 +123,7 @@ float 	*ft_compute(t_env *env)
 	i = 0;
 	while (i < 10)
 	{
-		printf("%d : %f\n", i, env->nw[3][i].output);
+//		printf("%d : %f\n", i, env->nw[3][i].output);
 		env->mlx.out[i] = env->nw[3][i].output;
 		i++;
 	}
